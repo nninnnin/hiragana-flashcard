@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        background-color: navy;
+        color: white;
+
+        font-weight: bold;
+        font-size: max(20px, 3vw);
+
+        width: 30vw;
+        height: 30vw;
+        min-width: 300px;
+        min-height: 300px;
+
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        user-select: none;
+      }
+
+      .container > h1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .hiragana {
+        font-size: max(100px, 10vw);
+      }
+    </style>
+
+    <style>
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        width: 100vw;
+        height: 80px;
+      }
+
+      header > ul {
+        display: flex;
+        flex-direction: column;
+
+        margin-top: 32px;
+      }
+
+      header > ul > a {
+        margin-bottom: 8px;
+
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <ul>
+        <a href="/index.html">random hiragana</a>
+        <a href="/gatakana.html">random gatakana</a>
+      </ul>
+    </header>
+
+    <div class="container">
+      <h1>Let's go!</h1>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"
+      integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script>
+      const gatakanas = {
+        meta: {
+          rows: 5,
+          columns: 10,
+          rowLabels: ["a", "i", "u", "e", "o"],
+          columnLabels: ["a", "k", "s", "t", "n", "h", "m", "y", "r", "w", "n"],
+        },
+        table: [
+          [
+            // 아에이오우 가타카나로
+            "ア",
+            "イ",
+            "ウ",
+            "エ",
+            "オ",
+          ],
+          [
+            // 카키쿠케코
+            "カ",
+            "キ",
+            "ク",
+            "ケ",
+            "コ",
+          ],
+          [
+            // 사시스세소
+            "サ",
+            "シ",
+            "ス",
+            "セ",
+            "ソ",
+          ],
+          [
+            // 타치츠테토
+            "タ",
+            "チ",
+            "ツ",
+            "テ",
+            "ト",
+          ],
+          [
+            // 나니누네노
+            "ナ",
+            "ニ",
+            "ヌ",
+            "ネ",
+            "ノ",
+          ],
+          [
+            // 하히후헤호
+            "ハ",
+            "ヒ",
+            "フ",
+            "ヘ",
+            "ホ",
+          ],
+          [
+            // 마미무메모
+            "マ",
+            "ミ",
+            "ム",
+            "メ",
+            "モ",
+          ],
+          [
+            // 야유요
+            "ヤ",
+            "ユ",
+            "ヨ",
+          ],
+          [
+            // 라리루레로
+            "ラ",
+            "リ",
+            "ル",
+            "レ",
+            "ロ",
+          ],
+          [
+            // 와오
+            "ワ",
+            "ヲ",
+          ],
+          [
+            // ㅇ
+            "ン",
+          ],
+        ],
+      };
+
+      const pickRandom = () => {
+        const randomRow = _.sample(gatakanas.meta.rowLabels);
+        const randomColumn = _.sample(gatakanas.meta.columnLabels);
+
+        const hiragana =
+          gatakanas.table[gatakanas.meta.columnLabels.indexOf(randomColumn)][
+            gatakanas.meta.rowLabels.indexOf(randomRow)
+          ];
+
+        if (!hiragana) {
+          return pickRandom();
+        }
+
+        return { randomRow, randomColumn, hiragana };
+      };
+
+      const container = document.querySelector(".container");
+      const contentsWrapper = document.querySelector(".container > h1");
+
+      container.addEventListener("click", () => {
+        // pick random row and column
+        const { randomRow, randomColumn, hiragana } = pickRandom();
+
+        const combiAlpha = `${randomColumn}${randomRow}`;
+
+        contentsWrapper.innerHTML = `<div class='hiragana'>${hiragana}</div><div>(${
+          randomColumn === "a" ? randomRow : combiAlpha
+        })</div>`;
+      });
+    </script>
+  </body>
+</html>
