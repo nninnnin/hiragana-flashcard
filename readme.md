@@ -2,7 +2,11 @@
 
 Learning hiragana & gatakana with random cards.
 
-<video src='https://justin-cms-images.s3.ap-northeast-2.amazonaws.com/hiragana-tester.mov' width='300' autoplay muted playsinline loop></video>
+
+
+https://github.com/user-attachments/assets/c907aeac-26b8-4f85-ad31-428787ab95b6
+
+
 
 ---
 
