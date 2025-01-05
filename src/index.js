@@ -1,4 +1,5 @@
 import { sample } from "lodash";
+import { inject } from "@vercel/analytics";
 
 import { hiraganas } from "./constants/hiragana";
 import { gatakanas } from "./constants/gatakana";
@@ -45,3 +46,4 @@ const main = () => {
 };
 
 main();
+inject();
