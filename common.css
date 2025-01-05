@@ -5,19 +5,24 @@ header {
   z-index: 9999;
 
   width: 100vw;
-  height: 80px;
 }
 
 header > ul {
-  display: flex;
-  flex-direction: column;
+  width: calc(100% - 64px);
 
-  margin-top: 32px;
+  padding: 0 !important;
+  margin: 0 !important;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-top: 20px !important;
+  padding-left: 32px !important;
+  padding-right: 32px !important;
 }
 
 header > ul > a {
-  margin-bottom: 8px;
-
   cursor: pointer;
 
   color: white;
