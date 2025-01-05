@@ -1,11 +1,11 @@
 {
   "name": "japanese-alphabet-flashcard",
   "version": "1.0.0",
-  "description": "Learning hiragana & gatakana with random cards.",
+  "description": "Learning hiragana & katakana with random cards.",
   "entry": "./src/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "parcel build ./src/index.html ./src/gatakana.html"
+    "build": "parcel build ./src/index.html ./src/katakana.html"
   },
   "author": "",
   "license": "ISC",

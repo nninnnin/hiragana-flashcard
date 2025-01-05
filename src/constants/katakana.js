@@ -1,4 +1,4 @@
-export const gatakanas = {
+export const katakanas = {
   meta: {
     rows: 5,
     columns: 10,

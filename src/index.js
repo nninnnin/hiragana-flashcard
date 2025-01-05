@@ -2,7 +2,7 @@ import { sample } from "lodash";
 import { inject } from "@vercel/analytics";
 
 import { hiraganas } from "./constants/hiragana";
-import { gatakanas } from "./constants/gatakana";
+import { katakanas } from "./constants/katakana";
 import { convertAlphabet } from "./converter";
 
 const getJPAlphabet = () => {
@@ -10,7 +10,7 @@ const getJPAlphabet = () => {
     ? "hiragana"
     : "katakana";
 
-  return alphaType === "hiragana" ? hiraganas : gatakanas;
+  return alphaType === "hiragana" ? hiraganas : katakanas;
 };
 
 const pickRandom = (jpAlphabets) => {
