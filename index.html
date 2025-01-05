@@ -75,6 +75,8 @@
       referrerpolicy="no-referrer"
     ></script>
 
+    <script src="./converter.js"></script>
+
     <script>
       const hiraganas = {
         meta: {
@@ -189,7 +191,7 @@
         // pick random row and column
         const { randomRow, randomColumn, hiragana } = pickRandom();
 
-        const combiAlpha = `${randomColumn}${randomRow}`;
+        const combiAlpha = convertAlphabet(`${randomColumn}${randomRow}`);
 
         contentsWrapper.innerHTML = `<div class='hiragana'>${hiragana}</div><div>(${
           randomColumn === "a" ? randomRow : combiAlpha
