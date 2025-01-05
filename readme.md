@@ -2,11 +2,7 @@
 
 Learning hiragana & gatakana with random cards.
 
-
-
-https://github.com/user-attachments/assets/c907aeac-26b8-4f85-ad31-428787ab95b6
-
-
+https://github.com/user-attachments/assets/c9372e9d-33d2-4b7e-b9aa-d5b09efa2cb6
 
 ---
 
