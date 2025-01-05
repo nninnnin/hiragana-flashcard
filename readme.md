@@ -1,9 +1,9 @@
-# hiragana tester
+# hiragana & katakana flashcard
 
-Learning hiragana & katakana with random cards.
+Learning hiragana & katakana with random flashcard 🥷
 
 https://github.com/user-attachments/assets/c9372e9d-33d2-4b7e-b9aa-d5b09efa2cb6
 
 ---
 
-madeby @nninnnin (Github)
+made by github.com/nninnnin
