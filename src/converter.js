@@ -1,4 +1,4 @@
-const convertAlphabet = (str) => {
+export const convertAlphabet = (str) => {
   if (str === "wi") {
     return "o";
   }
