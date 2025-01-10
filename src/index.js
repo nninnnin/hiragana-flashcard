@@ -6,27 +6,23 @@ import { katakanas } from "./constants/katakana";
 import { convertAlphabet } from "./converter";
 
 const getJPAlphabet = () => {
-  const alphaType = location.pathname.includes("hiragana")
-    ? "hiragana"
-    : "katakana";
-
-  return alphaType === "hiragana" ? hiraganas : katakanas;
+  return location.pathname.includes("katakana") ? katakanas : hiraganas;
 };
 
-const pickRandom = (jpAlphabets) => {
-  const randomRow = sample(hiraganas.meta.rowLabels);
-  const randomColumn = sample(hiraganas.meta.columnLabels);
+const pickRandom = (alphas) => {
+  const randomRow = sample(alphas.meta.rowLabels);
+  const randomColumn = sample(alphas.meta.columnLabels);
 
-  const hiragana =
-    hiraganas.table[hiraganas.meta.columnLabels.indexOf(randomColumn)][
-      hiraganas.meta.rowLabels.indexOf(randomRow)
+  const alphbet =
+    alphas.table[alphas.meta.columnLabels.indexOf(randomColumn)][
+      alphas.meta.rowLabels.indexOf(randomRow)
     ];
 
-  if (!hiragana) {
-    return pickRandom(jpAlphabets);
+  if (!alphbet) {
+    return pickRandom(alphas);
   }
 
-  return { randomRow, randomColumn, hiragana };
+  return { randomRow, randomColumn, alphbet };
 };
 
 const main = () => {
@@ -35,11 +31,11 @@ const main = () => {
 
   container.addEventListener("click", () => {
     // pick random row and column
-    const { randomRow, randomColumn, hiragana } = pickRandom(getJPAlphabet());
+    const { randomRow, randomColumn, alphbet } = pickRandom(getJPAlphabet());
 
     const combiAlpha = convertAlphabet(`${randomColumn}${randomRow}`);
 
-    contentsWrapper.innerHTML = `<div class='hiragana'>${hiragana}</div><div>(${
+    contentsWrapper.innerHTML = `<div class='alphbet'>${alphbet}</div><div>(${
       randomColumn === "a" ? randomRow : combiAlpha
     })</div>`;
   });
